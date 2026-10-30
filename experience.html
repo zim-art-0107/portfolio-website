@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Experience and skills of Digital Alchemist, a freelance marketing expert.">
+    <title>Experience & Skills | Digital Alchemist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .page-header {
+            padding: 8rem 10% 4rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 0 10% 4rem;
+        }
+
+        .skill-category {
+            background: #0f0f13;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-list li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+        }
+
+        .skill-list li i {
+            color: var(--secondary);
+            font-size: 0.8rem;
+        }
+
+        .timeline {
+            padding: 0 10% 4rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            border-left: 2px solid var(--glass-border);
+            padding-left: 2rem;
+            padding-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+
+        .timeline-date {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">ZIMAL<span class="accent">.</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="experience.html" class="active">Experience</a></li>
+            <li><a href="location.html">Location</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="hamburger"><i class="fas fa-bars"></i></div>
+    </nav>
+
+    <main>
+        <div class="page-header">
+            <h1>My <span class="gradient-text">Expertise</span></h1>
+            <p>A comprehensive toolkit for digital dominance.</p>
+        </div>
+
+        <section class="skills-grid">
+            <div class="skill-category">
+                <h3><i class="fas fa-search"></i> SEO & SEM</h3>
+                <ul class="skill-list">
+                    <li><i class="fas fa-check"></i> Technical SEO Audits</li>
+                    <li><i class="fas fa-check"></i> Keyword Strategy & Research</li>
+                    <li><i class="fas fa-check"></i> On-Page & Off-Page Optimization</li>
+                    <li><i class="fas fa-check"></i> Google Ads (PPC) Management</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-share-alt"></i> Social Media</h3>
+                <ul class="skill-list">
+                    <li><i class="fas fa-check"></i> Instagram & TikTok Growth</li>
+                    <li><i class="fas fa-check"></i> LinkedIn B2B Lead Gen</li>
+                    <li><i class="fas fa-check"></i> Content Calendar Planning</li>
+                    <li><i class="fas fa-check"></i> Community Management</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-pen-nib"></i> Content & Copy</h3>
+                <ul class="skill-list">
+                    <li><i class="fas fa-check"></i> Blog Post & Article Writing</li>
+                    <li><i class="fas fa-check"></i> Email Marketing Campaigns</li>
+                    <li><i class="fas fa-check"></i> Landing Page Copywriting</li>
+                    <li><i class="fas fa-check"></i> Brand Voice Development</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="timeline">
+            <h2 style="margin-bottom: 2rem;">Professional Journey</h2>
+            <div class="timeline-item">
+                <span class="timeline-date">2023 - Present</span>
+                <h3>Freelance Digital Strategist</h3>
+                <p>Helping SMBs scale their online presence through integrated marketing campaigns. Achieved 200%
+                    average growth for clients.</p>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">2021 - 2023</span>
+                <h3>Senior SEO Specialist, TechCorp</h3>
+                <p>Led a team of 5 to optimize enterprise-level web architectures. Increased organic traffic by 1.5M
+                    monthly visitors.</p>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>

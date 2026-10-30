@@ -1,0 +1,499 @@
+:root {
+    --bg-color: #0b0d17;
+    /* Deepest Indigo/Black */
+    --text-color: #f0f2f5;
+    --text-muted: #aeb4c7;
+    --primary: #00f2ea;
+    /* Electric Cyan */
+    --secondary: #ff0050;
+    /* Vibrant Radish/Pink */
+    --accent: #7000ff;
+    /* Electric Purple */
+    --glass-bg: rgba(20, 25, 40, 0.7);
+    --glass-border: rgba(0, 242, 234, 0.2);
+    --font-main: 'Outfit', sans-serif;
+    --font-head: 'Playfair Display', serif;
+    --max-width: 1200px;
+    --transition: cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+}
+
+h1,
+h2,
+h3,
+h4,
+.logo {
+    font-family: var(--font-main);
+    /* Reverting to Outfit for modern punch */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background: rgba(5, 5, 7, 0.8);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    font-style: italic;
+}
+
+.logo .accent {
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    font-weight: 400;
+    opacity: 0.7;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    opacity: 1;
+    color: var(--primary);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: var(--primary);
+    transition: var(--transition);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Typography & Utilities */
+.gradient-text {
+    background: linear-gradient(to right, var(--primary), var(--accent), var(--secondary));
+    background-size: 200% auto;
+    animation: gradientMove 3s linear infinite;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btn {
+    padding: 1rem 3rem;
+    border-radius: 0;
+    clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+    font-weight: 800;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    letter-spacing: 2px;
+    font-family: var(--font-main);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn.primary {
+    background: var(--primary);
+    color: #000;
+}
+
+.btn.primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+    transition: 0.5s;
+}
+
+.btn.primary:hover::before {
+    left: 100%;
+}
+
+.btn.primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 242, 234, 0.5);
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+.btn.secondary {
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    color: var(--text-color);
+}
+
+.btn.secondary:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    flex: 1;
+    z-index: 2;
+}
+
+.badge {
+    background: var(--glass-bg);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: var(--primary);
+    border: 1px solid var(--glass-border);
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    max-width: 500px;
+}
+
+.cta-group {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Hero Visual & Animations */
+.hero-visual {
+    flex: 1;
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+}
+
+.image-wrapper {
+    position: relative;
+    width: 450px;
+    height: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    position: relative;
+    z-index: 2;
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    box-shadow: 0 0 50px rgba(0, 242, 234, 0.2);
+    border: 1px solid var(--glass-border);
+}
+
+.glow-orb {
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
+    filter: blur(80px);
+    opacity: 0.4;
+    z-index: 1;
+    animation: pulse 5s infinite alternate;
+}
+
+.stat-card {
+    position: absolute;
+    background: rgba(20, 20, 25, 0.8);
+    backdrop-filter: blur(15px);
+    padding: 1.5rem;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    z-index: 2;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.stat-card i {
+    font-size: 2rem;
+    color: var(--primary);
+}
+
+.stat-card h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
+}
+
+.stat-card small {
+    color: var(--text-muted);
+}
+
+.drift-1 {
+    top: 30%;
+    right: 10%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.drift-2 {
+    bottom: 30%;
+    left: 10%;
+    animation: float 7s ease-in-out infinite 1s;
+}
+
+/* Why Hire Me Section */
+.why-hire-me {
+    padding: 6rem 10%;
+    position: relative;
+    z-index: 3;
+    background: linear-gradient(180deg, var(--bg-color) 0%, #0a0a0f 100%);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    margin: 1rem 0;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.benefit-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    padding: 2.5rem;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.benefit-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+    transform: translateX(-100%);
+    transition: 0.5s;
+}
+
+.benefit-card:hover::before {
+    transform: translateX(100%);
+}
+
+.benefit-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
+    box-shadow: 0 10px 30px rgba(0, 243, 255, 0.1);
+}
+
+.icon-box {
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 243, 255, 0.1);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: var(--transition);
+}
+
+.benefit-card:hover .icon-box {
+    background: var(--primary);
+    transform: rotate(10deg);
+}
+
+.icon-box i {
+    font-size: 1.5rem;
+    color: var(--primary);
+    transition: var(--transition);
+}
+
+.benefit-card:hover .icon-box i {
+    color: #000;
+}
+
+.benefit-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.benefit-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* Animations */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0.3;
+        transform: scale(1.1);
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 100px;
+        height: auto;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        margin: 0 auto 2rem;
+    }
+
+    .cta-group {
+        justify-content: center;
+    }
+
+    .hero-visual {
+        height: 300px;
+        width: 100%;
+        margin-top: 3rem;
+    }
+
+    .nav-links {
+        display: none;
+        /* Add JS toggle later */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--bg-color);
+        flex-direction: column;
+        padding: 2rem;
+        text-align: center;
+        border-bottom: 1px solid var(--glass-border);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .why-hire-me {
+        padding: 4rem 5%;
+    }
+}
